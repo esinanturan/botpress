@@ -1,5 +1,5 @@
 import { ActionDefinition, z } from '@botpress/sdk'
-import { BoardSchema, MemberSchema } from 'definitions/schemas'
+import { boardSchema, memberSchema } from 'definitions/schemas'
 import { hasBoardId, hasCardId, outputsMember, outputsMembers } from './common'
 
 export const getMemberByIdOrUsername = {
@@ -9,7 +9,7 @@ export const getMemberByIdOrUsername = {
     schema: z
       .object({
         memberIdOrUsername: z
-          .union([MemberSchema.shape.id, MemberSchema.shape.username])
+          .union([memberSchema.shape.id, memberSchema.shape.username])
           .title('Member ID or Username')
           .describe('ID or username of the member to get'),
       })
@@ -48,7 +48,7 @@ export const getBoardMembersByDisplayName = {
   input: {
     schema: hasBoardId
       .extend({
-        displayName: BoardSchema.shape.name.title('Display Name').describe('Display name of the member'),
+        displayName: boardSchema.shape.name.title('Display Name').describe('Display name of the member'),
       })
       .describe('Input schema for getting a member from its name'),
   },

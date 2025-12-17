@@ -1,5 +1,5 @@
 import { IntegrationDefinitionProps, z } from '@botpress/sdk'
-import { BoardSchema } from './schemas'
+import { boardSchema } from './schemas'
 
 export const configuration = {
   schema: z.object({
@@ -13,7 +13,7 @@ export const configuration = {
       .title('Trello API Token')
       .describe('Can be obtained by granting access to the application on Trello')
       .secret(),
-    trelloBoardId: BoardSchema.shape.id
+    trelloBoardId: boardSchema.shape.id
       .describe('Unique identifier of the board to watch for events on Trello')
       .optional(),
   }),

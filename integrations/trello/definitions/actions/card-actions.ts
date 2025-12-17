@@ -1,5 +1,5 @@
 import { ActionDefinition, z } from '@botpress/sdk'
-import { CardSchema, ListSchema, TrelloIDSchema } from 'definitions/schemas'
+import { cardSchema, listSchema, trelloIdSchema } from 'definitions/schemas'
 import { hasCardId, hasListId, hasMessage, outputsCard, outputsCards } from './common'
 
 export const getCardById = {
@@ -19,7 +19,7 @@ export const getCardsByDisplayName = {
   input: {
     schema: hasListId
       .extend({
-        cardName: CardSchema.shape.name.title('Card Name').describe('Display name of the card'),
+        cardName: cardSchema.shape.name.title('Card Name').describe('Display name of the card'),
       })
       .describe('Input schema for getting a card ID from its name'),
   },
@@ -45,20 +45,20 @@ export const createCard = {
   input: {
     schema: z
       .object({
-        listId: ListSchema.shape.id.title('List ID').describe('ID of the list in which to insert the new card'),
-        cardName: CardSchema.shape.name.title('Card Name').describe('Name of the new card'),
-        cardBody: CardSchema.shape.description.optional().title('Card Body').describe('Body text of the new card'),
+        listId: listSchema.shape.id.title('List ID').describe('ID of the list in which to insert the new card'),
+        cardName: cardSchema.shape.name.title('Card Name').describe('Name of the new card'),
+        cardBody: cardSchema.shape.description.optional().title('Card Body').describe('Body text of the new card'),
         members: z
-          .array(TrelloIDSchema)
+          .array(trelloIdSchema)
           .optional()
           .title('Members')
           .describe('Members to add to the card (Optional). This should be a list of member IDs.'),
         labels: z
-          .array(TrelloIDSchema)
+          .array(trelloIdSchema)
           .optional()
           .title('Labels')
           .describe('Labels to add to the card (Optional). This should be a list of label IDs.'),
-        dueDate: CardSchema.shape.dueDate
+        dueDate: cardSchema.shape.dueDate
           .optional()
           .title('Due Date')
           .describe('The due date of the card in ISO 8601 format (Optional).'),
@@ -68,7 +68,7 @@ export const createCard = {
   output: {
     schema: hasMessage
       .extend({
-        newCardId: CardSchema.shape.id.describe('Unique identifier of the new card'),
+        newCardId: cardSchema.shape.id.describe('Unique identifier of the new card'),
       })
       .describe('Output schema for creating a card'),
   },
@@ -80,11 +80,11 @@ export const updateCard = {
   input: {
     schema: hasCardId
       .extend({
-        name: CardSchema.shape.name
+        name: cardSchema.shape.name
           .optional()
           .title('Name')
           .describe('The name of the card (Optional) (e.g. "My Test Card"). Leave empty to keep the current name.'),
-        bodyText: CardSchema.shape.description
+        bodyText: cardSchema.shape.description
           .optional()
           .title('Body Text')
           .describe('Body text of the new card (Optional). Leave empty to keep the current body.'),
@@ -105,34 +105,34 @@ export const updateCard = {
           )
           .optional(),
         membersToAdd: z
-          .array(TrelloIDSchema)
+          .array(trelloIdSchema)
           .optional()
           .title('Members to Add')
           .describe(
             'Members to add to the card (Optional). This should be a list of member IDs. Leave empty to keep the current members.'
           ),
         membersToRemove: z
-          .array(TrelloIDSchema)
+          .array(trelloIdSchema)
           .optional()
           .title('Members to Remove')
           .describe(
             'Members to remove from the card (Optional). This should be a list of member IDs. Leave empty to keep the current members.'
           ),
         labelsToAdd: z
-          .array(TrelloIDSchema)
+          .array(trelloIdSchema)
           .optional()
           .title('Labels to Add')
           .describe(
             'Labels to add to the card (Optional). This should be a list of label IDs. Leave empty to keep the current labels.'
           ),
         labelsToRemove: z
-          .array(TrelloIDSchema)
+          .array(trelloIdSchema)
           .optional()
           .title('Labels to Remove')
           .describe(
             'Labels to remove from the card (Optional). This should be a list of label IDs. Leave empty to keep the current labels.'
           ),
-        dueDate: CardSchema.shape.dueDate
+        dueDate: cardSchema.shape.dueDate
           .optional()
           .title('Due Date')
           .describe(
@@ -152,7 +152,7 @@ export const addCardComment = {
   input: {
     schema: z
       .object({
-        cardId: CardSchema.shape.id
+        cardId: cardSchema.shape.id
           .title('Card ID')
           .describe('Unique identifier of the card to which a comment will be added'),
         commentBody: z.string().title('Comment Body').describe('The body text of the comment'),
@@ -162,7 +162,7 @@ export const addCardComment = {
   output: {
     schema: hasMessage
       .extend({
-        newCommentId: TrelloIDSchema.describe('Unique identifier of the newly created comment'),
+        newCommentId: trelloIdSchema.describe('Unique identifier of the newly created comment'),
       })
       .describe('Output schema for adding a comment to a card'),
   },
@@ -205,7 +205,7 @@ export const moveCardToList = {
   description: 'Move a card to another list within the same board',
   input: {
     schema: hasCardId.extend({
-      newListId: ListSchema.shape.id
+      newListId: listSchema.shape.id
         .title('New List ID')
         .describe('Unique identifier of the list in which the card will be moved'),
     }),

@@ -1,5 +1,5 @@
 import { ActionDefinition } from '@botpress/sdk'
-import { ListSchema } from 'definitions/schemas'
+import { listSchema } from 'definitions/schemas'
 import { hasBoardId, hasListId, outputsList, outputsLists } from './common'
 
 export const getListById = {
@@ -19,7 +19,7 @@ export const getListsByDisplayName = {
   input: {
     schema: hasBoardId
       .extend({
-        listName: ListSchema.shape.name.title('List Name').describe('Display name of the list'),
+        listName: listSchema.shape.name.title('List Name').describe('Display name of the list'),
       })
       .describe('Input schema for getting a list ID from its name'),
   },

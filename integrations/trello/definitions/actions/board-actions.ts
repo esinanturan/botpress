@@ -1,5 +1,5 @@
 import { ActionDefinition, z } from '@botpress/sdk'
-import { BoardSchema } from 'definitions/schemas'
+import { boardSchema } from 'definitions/schemas'
 import { hasBoardId, noInput, outputsBoard, outputsBoards } from './common'
 
 export const getBoardById = {
@@ -19,7 +19,7 @@ export const getBoardsByDisplayName = {
   input: {
     schema: z
       .object({
-        boardName: BoardSchema.shape.name.title('Board Name').describe('Display name of the board'),
+        boardName: boardSchema.shape.name.title('Board Name').describe('Display name of the board'),
       })
       .describe('Input schema for getting a board ID from its name'),
   },
