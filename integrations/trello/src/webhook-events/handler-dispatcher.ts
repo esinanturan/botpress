@@ -1,12 +1,12 @@
 import { default as sdk, z } from '@botpress/sdk'
-import { events } from 'definitions/events'
 import {
   type allSupportedEvents,
   commentCardEventSchema,
+  events,
   type genericWebhookEvent,
   genericWebhookEventSchema,
   TRELLO_EVENTS,
-} from 'definitions/schemas'
+} from 'definitions/events'
 import { States } from 'definitions/states'
 import { CardCommentHandler } from './handlers/card-comment'
 import * as bp from '.botpress'
