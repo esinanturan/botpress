@@ -1,5 +1,5 @@
 import { type IntegrationDefinitionProps, z } from '@botpress/sdk'
-import { trelloIdSchema } from './schemas/entities'
+import { trelloIdSchema } from './common-schemas'
 
 export const states = {
   webhookState: {

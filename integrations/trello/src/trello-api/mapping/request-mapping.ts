@@ -1,4 +1,4 @@
-import type { Card } from 'definitions/schemas'
+import type { Card } from 'definitions/common-schemas'
 import { UpdateCard, CreateCard } from 'trello.js/out/api/parameters'
 
 export namespace RequestMapping {

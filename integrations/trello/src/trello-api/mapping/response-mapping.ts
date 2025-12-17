@@ -1,4 +1,4 @@
-import type { List, Member, Board, TrelloID, Card } from 'definitions/schemas'
+import type { List, Member, Board, TrelloID, Card } from 'definitions/common-schemas'
 import { Models, type Models as TrelloJsModels } from 'trello.js'
 
 export namespace ResponseMapping {

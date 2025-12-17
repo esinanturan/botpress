@@ -1,5 +1,5 @@
 import { ActionDefinition, z } from '@botpress/sdk'
-import { boardSchema } from 'definitions/schemas'
+import { boardSchema } from 'definitions/common-schemas'
 import { hasBoardId, noInput, outputsBoard, outputsBoards } from './common'
 
 export const getBoardById = {

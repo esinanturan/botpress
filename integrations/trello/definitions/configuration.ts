@@ -1,5 +1,5 @@
 import { IntegrationDefinitionProps, z } from '@botpress/sdk'
-import { boardSchema } from './schemas'
+import { boardSchema } from './common-schemas'
 
 export const configuration = {
   schema: z.object({

@@ -1,5 +1,5 @@
 import { ActionDefinition, z } from '@botpress/sdk'
-import { cardSchema, listSchema, trelloIdSchema } from 'definitions/schemas'
+import { cardSchema, listSchema, trelloIdSchema } from 'definitions/common-schemas'
 import { hasCardId, hasListId, hasMessage, outputsCard, outputsCards } from './common'
 
 export const getCardById = {

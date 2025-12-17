@@ -1,4 +1,4 @@
-import type { Board, Card, List, Member, TrelloID } from 'definitions/schemas'
+import type { Board, Card, List, Member, TrelloID } from 'definitions/common-schemas'
 import { TrelloClient as TrelloJs, type Models as TrelloJsModels } from 'trello.js'
 import { handleErrorsDecorator as handleErrors } from './error-handling/error-handler-decorator'
 import { RequestMapping } from './mapping/request-mapping'
