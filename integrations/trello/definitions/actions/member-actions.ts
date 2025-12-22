@@ -1,5 +1,5 @@
 import { ActionDefinition, z } from '@botpress/sdk'
-import { boardSchema, memberSchema } from 'definitions/common-schemas'
+import { boardSchema, memberSchema } from 'definitions/schemas'
 import { hasBoardId, hasCardId, outputsMember, outputsMembers } from './common'
 
 export const getMemberByIdOrUsername = {

@@ -1,5 +1,5 @@
 import * as sdk from '@botpress/sdk'
-import { Card } from 'definitions/common-schemas'
+import { Card } from 'definitions/schemas'
 import { TrelloClient } from 'src/trello-api/trello-client'
 
 export const moveCardVertically = async ({

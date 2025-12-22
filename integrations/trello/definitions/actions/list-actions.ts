@@ -1,5 +1,5 @@
 import { ActionDefinition } from '@botpress/sdk'
-import { listSchema } from 'definitions/common-schemas'
+import { listSchema } from 'definitions/schemas'
 import { hasBoardId, hasListId, outputsList, outputsLists } from './common'
 
 export const getListById = {
